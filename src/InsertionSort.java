@@ -1,7 +1,7 @@
-import java.util.Queue;
+import java.util.LinkedList;
 public class InsertionSort {
 
-    public static int minIndex(Queue<Integer> list,
+    public static int minIndex(LinkedList<Integer> list,
                                int sortIndex)
     {
         int min_index = -1;
@@ -30,7 +30,7 @@ public class InsertionSort {
 
     // Moves given minimum element
     // to rear of queue
-    public static void insertMinToRear(Queue<Integer> list,
+    public static void insertMinToRear(LinkedList<Integer> list,
                                        int min_index)
     {
         int min_value = 0;
@@ -47,12 +47,26 @@ public class InsertionSort {
         list.add(min_value);
     }
 
-    public static void sortQueue(Queue<Integer> list)
+    public static void sortQueue(LinkedList<Integer> list)
     {
         for(int i = 1; i <= list.size(); i++)
         {
             int min_index = minIndex(list,list.size() - i);
             insertMinToRear(list, min_index);
+        }
+    }
+    
+    public static void sortQueueDES(LinkedList<Integer> list)
+    {
+        sortQueue(list);
+        LinkedList<Integer> buff = new LinkedList<>();
+        for(int i = list.size()-1; i >= 0; i--)
+        {
+            buff.add(list.removeLast());
+        }
+        for(int i = buff.size()-1; i >= 0; i--)
+        {
+            list.add(buff.removeFirst());
         }
     }
 }

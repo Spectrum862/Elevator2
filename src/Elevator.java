@@ -93,7 +93,8 @@ public class Elevator implements Runnable{
 
     public void addQueue(int floor){
         queue.add(floor);
-        InsertionSort.sortQueue(queue);
+        if(state.equals("up")) InsertionSort.sortQueue(queue);
+        if(state.equals("down")) ;
     }
 
     public void addHuman(Human human){

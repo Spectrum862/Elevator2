@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Elevator/Elevator2/src/Floor.java</file>
             <file>file:/C:/Elevator/Elevator2/src/Elevator.java</file>
+            <file>file:/C:/Elevator/Elevator2/src/UI.java</file>
+            <file>file:/C:/Elevator/Elevator2/src/Display.java</file>
+            <file>file:/C:/Elevator/Elevator2/src/InsertionSort.java</file>
             <file>file:/C:/Elevator/Elevator2/src/Building.java</file>
-            <file>file:/C:/Elevator/Elevator2/src/ElevatorControll.java</file>
         </group>
     </open-files>
 </project-private>

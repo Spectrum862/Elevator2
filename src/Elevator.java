@@ -20,6 +20,15 @@ public class Elevator implements Runnable{
 
     }
     
+    public Elevator(int number,int maxpsg){
+        this.number = number;
+        queue = new LinkedList<>();
+        passengers = new LinkedList<>();
+        state = "idle";
+        position = 1;
+        max_psg = maxpsg;
+    }
+    
     @Override
     public void run() {
         
@@ -94,7 +103,7 @@ public class Elevator implements Runnable{
     public void addQueue(int floor){
         queue.add(floor);
         if(state.equals("up")) InsertionSort.sortQueue(queue);
-        if(state.equals("down")) ;
+        if(state.equals("down")) InsertionSort.sortQueueDES(queue);
     }
 
     public void addHuman(Human human){

@@ -10,7 +10,7 @@ public class ElevatorControll implements Runnable {
     }
 
     public void run() {
-        System.out.println("13324234");
+
         while (true) {
             if ((elevator.getPosition() - elevator.getFisrt()) < 0) {
                 elevator.setState("up");

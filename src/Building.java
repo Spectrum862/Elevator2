@@ -24,7 +24,14 @@ public class Building {
         test.add(5);
         test.add(6);
         test.add(2);
+        test.add(2);
         test.add(4);
+        test.add(4);
+        System.out.print(test.contains(2));
+        InsertionSort.sortQueueDES(test);
+        for(int j=0;j<test.size();j++){
+            System.out.print(test.get(j));
+        }
         elevator = new Elevator[3];
         floor = new Floor[15];
         elevator[0] = new Elevator(1);
@@ -37,6 +44,7 @@ public class Building {
         floor[2] = new Floor(3);
         floor[4] = new Floor(5);
         floor[9] = new Floor(10);
+        floor[9].addHumanDown(test2);
         floor[4].addHumanUp(test5);
         floor[4].addHumanUp(test5);
         elevator[0].addQueue(3);
@@ -48,9 +56,9 @@ public class Building {
         Thread t3 = new Thread(elevator[2]);
 //        Thread t4 = new Thread(new Display());
 //        t4.start();
-        t1.start();
-        t2.start();
-        t3.start();
+//        t1.start();
+//        t2.start();
+//        t3.start();
 
 //        ui1 = new UI();
 //        ui1.setVisible(true);

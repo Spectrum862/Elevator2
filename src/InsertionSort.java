@@ -36,9 +36,11 @@ public class InsertionSort {
         int min_value = 0;
         int s = list.size();
         for (int i = 0; i < s; i++)
-        {
+        {   
+            
             int current = list.peek();
             list.poll();
+            if(list.contains(current)) continue;
             if (i != min_index)
                 list.add(current);
             else
@@ -48,7 +50,7 @@ public class InsertionSort {
     }
 
     public static void sortQueue(LinkedList<Integer> list)
-    {
+    {   
         for(int i = 1; i <= list.size(); i++)
         {
             int min_index = minIndex(list,list.size() - i);

@@ -25,6 +25,15 @@ public class Floor {
     public void addHumanDown(Human human){
         queue_down.addLast(human);
     }
+    
+    public boolean isQUpEmpty(){
+       return queue_up.isEmpty();
+    }
+    
+    public boolean isQDownEmpty(){
+       return queue_up.isEmpty();
+    }
+    
 
     public LinkedList<Human> selectHumanup(int freespace){    
         if(queue_up.isEmpty() == false){ 

@@ -84,8 +84,10 @@ public class Elevator implements Runnable{
             human = target_floor.selectHumandown(freespace);
         }
         if(human!=null) 
-            for(int i =0;i<human.size();i++)
-                passengers.add(human.get(i));    
+            for(int i =0;i<human.size();i++){
+                passengers.add(human.get(i));
+                this.addQueue(human.get(i).getFloor());
+            }
     }
 
     public  void  setState(String state){

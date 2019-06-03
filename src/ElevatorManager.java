@@ -30,11 +30,11 @@ public class ElevatorManager implements Runnable{
                 for (int j = 0; j < Building.elevator.length ; j++) {
                     if(i==0){
                         if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("down")) {
-                            d = Building.elevator[j].getPosition() - Building.floor[i].getFloornum();
+                            d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
                         }
                     } else {
                         if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("up")) {
-                            d = Building.floor[i].getFloornum() - Building.elevator[j].getPosition();
+                            d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
                         }
                     }
                     if (d <= buff) {
@@ -50,11 +50,11 @@ public class ElevatorManager implements Runnable{
                 for (int j = 0; j < Building.elevator.length; j++) {
                     if(i==Building.num_floor-1){
                         if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("up")) {
-                            d = Building.floor[i].getFloornum() - Building.elevator[j].getPosition();
+                            d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
                         }
                     } else {
                         if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("down")) {
-                            d = Building.elevator[j].getPosition() - Building.floor[i].getFloornum();
+                            d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
                         }
                     }
                     if (d <= buff) {

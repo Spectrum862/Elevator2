@@ -125,7 +125,7 @@ public class HomeUI extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/01.gif"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -250, 1600, 970));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -250, 1400, 970));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

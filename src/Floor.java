@@ -4,7 +4,6 @@ public class Floor {
     private LinkedList<Human> queue_up;
     private LinkedList<Human> queue_down;
     private LinkedList<Human> arrived_psg;
-    private static int semaphore;
     private int floornum;
     
 
@@ -13,7 +12,6 @@ public class Floor {
         this.queue_up = new LinkedList<>();
         this.arrived_psg = new LinkedList<>();
         this.floornum = floornum;
-        this.semaphore = 0;
     }
     
 

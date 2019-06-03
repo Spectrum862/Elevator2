@@ -1,13 +1,15 @@
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Clock implements Runnable
 {
-	int hour = 7 ,minute = 00 ,day = 1;
+	int hour = 6 ,minute = 59 ,day = 1;
 	int maxfloor =0 ,foodfloor=0;
+        private int stopflag=1;
+        private static String time;
+
 	
 	public Clock() {
 		// TODO Auto-generated constructor stub
@@ -35,50 +37,58 @@ public class Clock implements Runnable
 		return day;
 	}
 	
-	@Override
-	public void run() {
-		try {
-			this.CountClock();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+        public synchronized String getTimev() {
+		return time;
 	}
 	
-	public String getTime() {
+	public synchronized String getTime() {
 		if(this.minute-10<0) return "Day : "+ this.day+" | "+this.hour+" : "+"0"+this.minute;
 		else return "Day : "+ this.day+" | "+this.hour+" : "+this.minute;
 	}
+        
+        public void stop(){
+            this.stopflag = 0;
+        }
+        
+        public void unstop(){
+            this.stopflag=1;
+        }        
 	
-	
-	
-	
-	public void CountClock() throws InterruptedException 
+        @Override
+	public void run()
 	{
 		boolean running = true;
 		while (running)
-		{
+		{   
+                    time = this.getTime();
+                    if(hour == 23 && minute == 59) 
+                    {
+                            hour = 0;
+                            minute = 0;
+                            day = day +1;
+                    }
+                    else if( minute == 59)
+                    {
+                            hour = hour + 1;
+                            minute = 0;
+                    }
+                        else  minute = minute +1;
 
-		// sleep for 1 seconds
-		TimeUnit.SECONDS.sleep(1);
-		if(hour == 23 && minute == 60) 
-		{
-			hour = 0;
-			minute = 0;
-			day = day +1;
-		}
-		else if( minute == 60)
-		{
-			hour = hour + 1;
-			minute = 0;
-		}
-		
-			if(minute % 10 == 0 ) {
-			RandomNumber r = new RandomNumber();
-			r.format(maxfloor, hour, minute, foodfloor);
-		}
-		
-		minute = minute +1;
+                    if(minute % 10 == 0 ) {
+                        RandomNumber r = new RandomNumber();
+                        r.format(maxfloor, hour, minute, foodfloor);
+                    }
+                   
+                    try {
+                        TimeUnit.MICROSECONDS.sleep(Building.timeframe*200);
+                        
+                        
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                    while(stopflag==0) {System.out.println("");};
+                    
 		}
 		
 	}

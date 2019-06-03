@@ -9,6 +9,9 @@
     import java.awt.Color;
     import java.awt.Label;
 import java.awt.Point;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
     
 
 /**
@@ -43,7 +46,6 @@ public class MainUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSlider2 = new javax.swing.JSlider();
-        jRadioButton1 = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         label1 = new java.awt.Label();
@@ -91,22 +93,21 @@ public class MainUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        State = new java.awt.Label();
-        Queue = new java.awt.Label();
-        Hu = new java.awt.Label();
-        prolift1 = new java.awt.Label();
+        Statee1 = new java.awt.Label();
+        Queuee1 = new java.awt.Label();
+        Hue1 = new java.awt.Label();
         jLabel4 = new javax.swing.JLabel();
-        State2 = new java.awt.Label();
-        Queue2 = new java.awt.Label();
-        Hu2 = new java.awt.Label();
-        prolift2 = new java.awt.Label();
+        State2e2 = new java.awt.Label();
+        Queue2e2 = new java.awt.Label();
+        Hu2e2 = new java.awt.Label();
         jLabel3 = new javax.swing.JLabel();
-        State3 = new java.awt.Label();
-        Queue3 = new java.awt.Label();
-        Hu3 = new java.awt.Label();
-        prolift3 = new java.awt.Label();
+        State3e3 = new java.awt.Label();
+        Queue3e3 = new java.awt.Label();
+        Hu3e3 = new java.awt.Label();
+        stop_button = new javax.swing.JToggleButton();
 
         menu1.setLabel("File");
         menuBar1.add(menu1);
@@ -141,16 +142,6 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jSlider2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1230, 80, 90, 210));
-
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 204));
-        jRadioButton1.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 26)); // NOI18N
-        jRadioButton1.setText("STOP");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 285, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 204));
         jButton2.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 26)); // NOI18N
@@ -357,58 +348,64 @@ public class MainUI extends javax.swing.JFrame {
         jLabel7.setText("jLabel5");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 86, 690));
 
+        jLabel8.setText("jLabel8");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 670, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1190, 700));
 
-        jLabel17.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 26)); // NOI18N
-        jLabel17.setText("jLabel17");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, 120, 40));
+        time.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 14)); // NOI18N
+        time.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        time.setText("jLabel17");
+        time.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        time.setRequestFocusEnabled(false);
+        time.setVerifyInputWhenFocusTarget(false);
+        jPanel1.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, 120, 40));
 
         jLabel2.setText("Elevator1");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 410, -1, -1));
 
-        State.setText("State :");
-        jPanel1.add(State, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 435, -1, -1));
+        Statee1.setText("State :");
+        jPanel1.add(Statee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 435, -1, -1));
 
-        Queue.setText("Queue :");
-        jPanel1.add(Queue, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 455, -1, -1));
+        Queuee1.setText("Queue :");
+        jPanel1.add(Queuee1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 455, -1, -1));
 
-        Hu.setText("No. of people :");
-        jPanel1.add(Hu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 475, -1, -1));
-
-        prolift1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(prolift1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1215, 400, 120, 100));
+        Hue1.setText("No. of people :");
+        jPanel1.add(Hue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 475, -1, -1));
 
         jLabel4.setText("Elevator2");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 515, -1, -1));
 
-        State2.setText("State :");
-        jPanel1.add(State2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 540, -1, -1));
+        State2e2.setText("State :");
+        jPanel1.add(State2e2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 540, -1, -1));
 
-        Queue2.setText("Queue :");
-        jPanel1.add(Queue2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 560, -1, -1));
+        Queue2e2.setText("Queue :");
+        jPanel1.add(Queue2e2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 560, -1, -1));
 
-        Hu2.setText("No. of people :");
-        jPanel1.add(Hu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 580, -1, -1));
-
-        prolift2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(prolift2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1215, 505, 120, 100));
+        Hu2e2.setText("No. of people :");
+        jPanel1.add(Hu2e2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 580, -1, -1));
 
         jLabel3.setText("Elevator3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 620, -1, -1));
 
-        State3.setText("State :");
-        jPanel1.add(State3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 640, -1, -1));
+        State3e3.setText("State :");
+        jPanel1.add(State3e3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 640, -1, -1));
 
-        Queue3.setText("Queue :");
-        jPanel1.add(Queue3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 660, -1, -1));
+        Queue3e3.setText("Queue :");
+        jPanel1.add(Queue3e3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 660, -1, -1));
 
-        Hu3.setText("No. of people :");
-        jPanel1.add(Hu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 680, -1, -1));
+        Hu3e3.setText("No. of people :");
+        jPanel1.add(Hu3e3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 680, -1, -1));
 
-        prolift3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(prolift3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1215, 610, 120, 100));
+        stop_button.setText("STOP");
+        stop_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stop_buttonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(stop_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(1239, 300, 70, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1410, 720));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1340, 720));
 
         pack();
         setLocationRelativeTo(null);
@@ -428,13 +425,13 @@ public class MainUI extends javax.swing.JFrame {
         buttom.setVisible (true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
     private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
-        // TODO add your handling code here:
-        speed = jSlider2.getValue();
+        int value = jSlider2.getValue();
+        if(value == 1 ) Building.setTimeframe(10000);
+        if(value == 2 ) Building.setTimeframe(7500);   
+        if(value == 3 ) Building.setTimeframe(5000);
+        if(value == 4 ) Building.setTimeframe(2500);
+        if(value == 5 ) Building.setTimeframe(1000);   
     }//GEN-LAST:event_jSlider2StateChanged
 
     private void HumanComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_HumanComponentMoved
@@ -448,35 +445,71 @@ public class MainUI extends javax.swing.JFrame {
     private void Door3ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_Door3ComponentMoved
 
     }//GEN-LAST:event_Door3ComponentMoved
-    public void setElevaposition(){
+
+    private void stop_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stop_buttonActionPerformed
+        if(stop_button.isSelected()) try {
+            Building.stop();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(MainUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        else Building.unstop();
+    }//GEN-LAST:event_stop_buttonActionPerformed
+    public synchronized void setInfo(){
         int position = Building.elevator[0].getPosition();
+        JLabel[] flabel = {f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15};
         Point xy;
         int x;
         int y;
+        
         for(int i =0;i<Building.num_elevator;i++){
             position = Building.elevator[i].getPosition();
+            
             if(i==0){
                 xy = Door1.getLocation();
                 x = xy.x;
                 y = xy.y;
                 Door1.setLocation(x, position);
+                Statee1.setText("State : "+Building.elevator[i].getState());
+                Hue1.setText("No. of people : " + Building.elevator[i].getPsize());
+                if(!Building.elevator[i].isQueueEmpty())
+                    Queuee1.setText("Queue : "+Building.elevator[i].getFirstFloor());
+                else Queuee1.setText("Queue : Empty");
+                
             }
             if(i==1){
                 xy = Door2.getLocation();
                 x = xy.x;
                 y = xy.y;
                 Door2.setLocation(x, position);
+                State2e2.setText("State : "+Building.elevator[i].getState());
+                Hu2e2.setText("No. of people : " + Building.elevator[i].getPsize());
+                if(!Building.elevator[i].isQueueEmpty())    
+                    Queue2e2.setText("Queue : "+Building.elevator[i].getFirstFloor());
+                else Queue2e2.setText("Queue : Empty");
             }
             if(i==2){
                 xy = Door3.getLocation();
                 x = xy.x;
                 y = xy.y;
                 Door3.setLocation(x, position);
-            }            
+                State3e3.setText("State : "+Building.elevator[i].getState());
+                Hu3e3.setText("No. of people : " + Building.elevator[i].getPsize());
+                if(!Building.elevator[i].isQueueEmpty())
+                    Queue3e3.setText("Queue : "+Building.elevator[i].getFirstFloor());
+                else Queue3e3.setText("Queue : Empty");
+            }
+            flabel[(Building.food_floor)-1].setText(Building.food_floor+"TH Floor" + " Canteen");
             
         }
-                
-    }         
+                  
+    }
+    
+    public void setTime(){
+        Clock clock = new Clock();
+        time.setText(clock.getTimev()); 
+    }
+   
+    
     /**
      * @param args the command line arguments
      */
@@ -509,24 +542,27 @@ public class MainUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainUI().setVisible(true);
+                
             }
         });
     }
-
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Door1;
     private javax.swing.JPanel Door2;
     private javax.swing.JPanel Door3;
-    private java.awt.Label Hu;
-    private java.awt.Label Hu2;
-    private java.awt.Label Hu3;
+    private java.awt.Label Hu2e2;
+    private java.awt.Label Hu3e3;
+    private java.awt.Label Hue1;
     private javax.swing.JLabel Human;
-    private java.awt.Label Queue;
-    private java.awt.Label Queue2;
-    private java.awt.Label Queue3;
-    private java.awt.Label State;
-    private java.awt.Label State2;
-    private java.awt.Label State3;
+    private java.awt.Label Queue2e2;
+    private java.awt.Label Queue3e3;
+    private java.awt.Label Queuee1;
+    private java.awt.Label State2e2;
+    private java.awt.Label State3e3;
+    private java.awt.Label Statee1;
     private javax.swing.JLabel door1;
     private javax.swing.JLabel door2;
     private javax.swing.JLabel door3;
@@ -550,16 +586,15 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel f9;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JSlider jSlider2;
     private java.awt.Label label1;
     private java.awt.Label label10;
@@ -581,8 +616,9 @@ public class MainUI extends javax.swing.JFrame {
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
-    private java.awt.Label prolift1;
-    private java.awt.Label prolift2;
-    private java.awt.Label prolift3;
+    private javax.swing.JToggleButton stop_button;
+    private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
+
+
 }

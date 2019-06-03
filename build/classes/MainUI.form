@@ -52,7 +52,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="1410" height="720"/>
+          <AbsoluteConstraints x="0" y="0" width="1340" height="720"/>
         </Constraint>
       </Constraints>
 
@@ -96,25 +96,6 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="1230" y="80" width="90" height="210"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arca Majora 3 Bold" size="26" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="STOP"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
-          </Events>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1220" y="285" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -700,14 +681,28 @@
                 </Constraint>
               </Constraints>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel8">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jLabel8"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="620" y="670" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
+            </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel17">
+        <Component class="javax.swing.JLabel" name="time">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arca Majora 3 Bold" size="26" style="1"/>
+              <Font name="Arca Majora 3 Bold" size="14" style="1"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="jLabel17"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="requestFocusEnabled" type="boolean" value="false"/>
+            <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -725,7 +720,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="State">
+        <Component class="java.awt.Label" name="Statee1">
           <Properties>
             <Property name="text" type="java.lang.String" value="State :"/>
           </Properties>
@@ -735,7 +730,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="Queue">
+        <Component class="java.awt.Label" name="Queuee1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Queue :"/>
           </Properties>
@@ -745,25 +740,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="Hu">
+        <Component class="java.awt.Label" name="Hue1">
           <Properties>
             <Property name="text" type="java.lang.String" value="No. of people :"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="1220" y="475" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="java.awt.Label" name="prolift1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1215" y="400" width="120" height="100"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -777,7 +760,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="State2">
+        <Component class="java.awt.Label" name="State2e2">
           <Properties>
             <Property name="text" type="java.lang.String" value="State :"/>
           </Properties>
@@ -787,7 +770,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="Queue2">
+        <Component class="java.awt.Label" name="Queue2e2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Queue :"/>
           </Properties>
@@ -797,25 +780,13 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="Hu2">
+        <Component class="java.awt.Label" name="Hu2e2">
           <Properties>
             <Property name="text" type="java.lang.String" value="No. of people :"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="1220" y="580" width="-1" height="-1"/>
-            </Constraint>
-          </Constraints>
-        </Component>
-        <Component class="java.awt.Label" name="prolift2">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1215" y="505" width="120" height="100"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -829,7 +800,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="State3">
+        <Component class="java.awt.Label" name="State3e3">
           <Properties>
             <Property name="text" type="java.lang.String" value="State :"/>
           </Properties>
@@ -839,7 +810,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="Queue3">
+        <Component class="java.awt.Label" name="Queue3e3">
           <Properties>
             <Property name="text" type="java.lang.String" value="Queue :"/>
           </Properties>
@@ -849,7 +820,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="Hu3">
+        <Component class="java.awt.Label" name="Hu3e3">
           <Properties>
             <Property name="text" type="java.lang.String" value="No. of people :"/>
           </Properties>
@@ -859,15 +830,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="java.awt.Label" name="prolift3">
+        <Component class="javax.swing.JToggleButton" name="stop_button">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="STOP"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stop_buttonActionPerformed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="1215" y="610" width="120" height="100"/>
+              <AbsoluteConstraints x="1239" y="300" width="70" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

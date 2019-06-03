@@ -1,12 +1,9 @@
 
-import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 
 public class Building {
-    public static final int scale = 1;
-    public static final int timeframe = 5000;
+    public static int scale = 1;
+    public static int timeframe = 10000;
     public static final int floorheight = 46;
     public static final int firstfloorPosi = 645;
     static int num_floor;
@@ -20,7 +17,8 @@ public class Building {
     static int food_floor;
     static Thread[] ele_thread;
     static Thread clock_thread;
-    static Thread elemng_thread;    
+    static Thread elemng_thread;
+    private static Infoupdate updator;
     //first 690 -46
 
     public static void main(String[] args) throws InterruptedException {
@@ -53,6 +51,7 @@ public class Building {
         while(true){
             TimeUnit.SECONDS.sleep(1);
             floor[0].displayQueueup();
+            System.out.println(clock.getTime());
         }
         
 //        
@@ -85,8 +84,13 @@ public class Building {
         eleva_mng = new ElevatorManager();
         clock_thread = new Thread(clock);
         elemng_thread = new Thread(eleva_mng);
+        updator = new Infoupdate();
         
         
+    }
+    
+    public static void setTimeframe(int newtimeframe){
+        timeframe = newtimeframe;
     }
     
     public static void run(){
@@ -94,40 +98,22 @@ public class Building {
             ele_thread[i].start();
         }
         clock_thread.start();
-        elemng_thread.start();
+//        elemng_thread.start();
+        Thread update = new Thread(updator);
+        update.start();
         
     }
-
-    public static void display() {
-        double elev1_pos = elevator[0].getPosition();
-        double elev2_pos = elevator[1].getPosition();
-        double elev3_pos = elevator[2].getPosition();
-        System.out.println("------------------------------------");
-        for (double i = 15; i >= 1; i = i - 1) {
-            System.out.print("Position"+i);
-            if (elevator[0].getPosition() == i) {
-                System.out.printf("%5s", "x");
-            }
-            else{
-                System.out.printf("%5s", " ");
-            }
-            if (elevator[1].getPosition() == i) {
-                System.out.printf("%5s", "x");
-            }
-            else{
-                System.out.printf("%5s", " ");
-            }
-            if (elevator[2].getPosition() == i) {
-                System.out.printf("%5s", "x");
-            }
-            else{
-                System.out.printf("%5s", " ");
-            }
-            System.out.println("");
-
-        }
-        System.out.println("------------------------------------");
+    
+    public static void stop() throws InterruptedException{
+        scale = 0;
+        clock.stop();
     }
+    
+    public static void unstop(){
+        scale = 1;
+        clock.unstop();
+    }
+    
+    }
+    
 
-
-}

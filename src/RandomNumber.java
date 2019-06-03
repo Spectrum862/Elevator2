@@ -71,7 +71,7 @@ public class RandomNumber
 		if(minuteday >= 420 &&  minuteday <= 450) {
 			for (int floorgo =1 ; floorgo <= maxfloor ; floorgo++)
 			{
-			lambda = 2;
+			lambda = 3;
 			number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)
@@ -96,7 +96,7 @@ public class RandomNumber
 		else if (minuteday >= 451 &&  minuteday <= 660){
 			for (int floorgo =1 ; floorgo <= maxfloor ; floorgo++)
 			{
-			lambda = 3;
+			lambda = 2;
 			number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)
@@ -124,7 +124,7 @@ public class RandomNumber
 				
 				if(floorgo == foodfloor) //��Ҫ�鹷����ѧǹ�ٻ���� �繪����ҹ����� ������������Ң�� ��9
 				{
-					lambda = 9;
+					lambda = 6;
 					number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)
@@ -168,7 +168,7 @@ public class RandomNumber
 		else if(minuteday >= 781 &&  minuteday <= 1110) {
 			for (int floorgo =1 ; floorgo <= maxfloor ; floorgo++)
 			{
-			lambda = 3;
+			lambda = 2;
 			number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)
@@ -195,7 +195,7 @@ public class RandomNumber
 				
 				if(floorgo == 1)
 				{
-					lambda = 9;
+					lambda = 6;
 					number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)
@@ -207,7 +207,7 @@ public class RandomNumber
 					}
 					all = all +1;
 					String direction = direction(floorgo,floornow);
-					//System.out.printf("\n %4d number   floornow    %6d : %7s : floorgo %6d" ,all,floornow,direction,floorgo);
+					System.out.printf("\n %4d number   floornow    %6d : %7s : floorgo %6d" ,all,floornow,direction,floorgo);
 					human = new Human(direction,floorgo);
 				    if(direction.equals("up")) Building.floor[floornow-1].addHumanUp(human);
 				    else Building.floor[floornow-1].addHumanDown(human);
@@ -215,7 +215,7 @@ public class RandomNumber
 				}
 				else
 				{
-					lambda = 2;
+					lambda = 1;
 					number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)
@@ -237,7 +237,7 @@ public class RandomNumber
 			
 		}
 		// ����� 19.01 ���֧ 6.59 �ͧ�ѹ����
-		else if(minuteday >= 11401 &&  minuteday <= 1440 || minuteday >= 0 &&  minuteday <= 419) {
+		else if(minuteday >= 1141 &&  minuteday <= 1440 || minuteday >= 0 &&  minuteday <= 419) {
 			for (int floorgo =1 ; floorgo <= maxfloor ; floorgo++)
 			{
 			lambda = 1;

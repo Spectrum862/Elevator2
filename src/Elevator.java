@@ -18,7 +18,7 @@ public class Elevator implements Runnable{
         passengers = new LinkedList<>();
         state = "idle";
         position = Building.firstfloorPosi;;
-        max_psg = 10;
+        max_psg = 12;
 
     }
     
@@ -37,16 +37,16 @@ public class Elevator implements Runnable{
         while (true) {
                 int index; 
                 if(queue.isEmpty()==false){
-                    if ((this.getPosition() - this.getFisrt()) > 0) {
+                    if ((this.getPosition() - this.getFirst()) > 0) {
                         this.setState("up");
                         this.moveUp();
                     }
 
-                    else    if ((this.getPosition() - this.getFisrt()) < 0) {
+                    else    if ((this.getPosition() - this.getFirst()) < 0) {
                                 this.setState("down");
                                 this.moveDown();
                             }
-                            else if ((this.getPosition() == this.getFisrt())){ //match destination
+                            else if ((this.getPosition() == this.getFirst())){ //match destination
                                 queue.removeFirst(); 
                                 sendHuman(this.position);
                                 recieveHuman(this.state,this.position);
@@ -65,6 +65,7 @@ public class Elevator implements Runnable{
                     if(!Building.floor[floorindex].isQDownEmpty())this.setState("down");
                     else if(!Building.floor[floorindex].isQUpEmpty()) this.setState("up");
                     recieveHuman(this.state,this.position);
+                    Building.mainui.setInfo();
                 }                
                            
             try {
@@ -73,6 +74,10 @@ public class Elevator implements Runnable{
                 e.printStackTrace();
             }  
         }
+    }
+    
+    public int getPsize(){
+        return passengers.size();
     }
     
     public void sendHuman(int position){
@@ -137,7 +142,9 @@ public class Elevator implements Runnable{
         this.position = position;
     }
 
-
+    public boolean isQueueEmpty(){
+        return queue.isEmpty();
+    }
 
     public void displayPSG(){
         System.out.printf("%7s","");
@@ -158,16 +165,23 @@ public class Elevator implements Runnable{
 
     public void moveUp(){
         position -= Building.scale;
-        Building.mainui.setElevaposition();
     }
 
     public void moveDown(){
         position += Building.scale;
-        Building.mainui.setElevaposition();
+        
     }
 
-    public int getFisrt(){
+    public int getFirst(){
         return queue.getFirst();
+    }
+    
+    public int getFirstFloor(){
+        return ((Building.firstfloorPosi-queue.getFirst())/Building.floorheight)+1;
+    }
+    
+    public int FloornumPosi(){
+        return ((Building.firstfloorPosi-this.position)/Building.floorheight)+1;
     }
     
     public LinkedList<Human> selectHuman(int floor,LinkedList<Human> human){

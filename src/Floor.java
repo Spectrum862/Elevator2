@@ -4,6 +4,7 @@ public class Floor {
     private LinkedList<Human> queue_up;
     private LinkedList<Human> queue_down;
     private LinkedList<Human> arrived_psg;
+    private static int semaphore;
     private int floornum;
     
 
@@ -12,7 +13,9 @@ public class Floor {
         this.queue_up = new LinkedList<>();
         this.arrived_psg = new LinkedList<>();
         this.floornum = floornum;
+        this.semaphore = 0;
     }
+    
 
     public int getFloornum() {
         return floornum;
@@ -31,11 +34,11 @@ public class Floor {
     }
     
     public boolean isQDownEmpty(){
-       return queue_up.isEmpty();
+       return queue_down.isEmpty();
     }
     
 
-    public LinkedList<Human> selectHumanup(int freespace){    
+    public synchronized LinkedList<Human> selectHumanup(int freespace){    
         if(queue_up.isEmpty() == false){ 
             LinkedList<Human> buff = new LinkedList<>();
             int queuesize = queue_up.size();
@@ -47,7 +50,7 @@ public class Floor {
         return null;
     }
     
-    public LinkedList<Human> selectHumandown(int freespace){
+    public synchronized LinkedList<Human> selectHumandown(int freespace){
         if(queue_down.isEmpty()== false){
             LinkedList<Human> buff = new LinkedList<>();
             int queuesize = queue_down.size();
@@ -80,6 +83,7 @@ public class Floor {
         for(int i = 0;i<queue_up.size();i++) System.out.printf("%6d", (queue_up.get(i)).getFloor());
         System.out.printf("\n%7s","Direct");
         for(int i = 0;i<queue_up.size();i++) System.out.printf("%6s", (queue_up.get(i)).getDirection());
+        System.out.println("");
     }
 
     public void displayQueuedown(){
@@ -91,6 +95,7 @@ public class Floor {
         for(int i = 0;i<queue_down.size();i++) System.out.printf("%6d", (queue_down.get(i)).getFloor());
         System.out.printf("\n%7s","Direct");
         for(int i = 0;i<queue_down.size();i++) System.out.printf("%6s", (queue_down.get(i)).getDirection());
+        System.out.println("");
     }
     
     public void displayRecievePSG(){
@@ -102,6 +107,7 @@ public class Floor {
         for(int i = 0;i<arrived_psg.size();i++) System.out.printf("%6d", (arrived_psg.get(i)).getFloor());
         System.out.printf("\n%7s","Direct");
         for(int i = 0;i<arrived_psg.size();i++) System.out.printf("%6s", (arrived_psg.get(i)).getDirection());
+        
     }
 
 

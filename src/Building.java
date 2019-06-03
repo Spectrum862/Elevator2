@@ -5,68 +5,61 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class Building {
-    public static final double scale = 1;
-    public static final int timeframe = 1;
-    public static final int floorheight = 1;
+    public static final int scale = 1;
+    public static final int timeframe = 5000;
+    public static final int floorheight = 46;
+    public static final int firstfloorPosi = 645;
     static int num_floor;
     static int num_elevator;
     static Elevator[] elevator;
     static Floor[] floor;
-    static private UI ui1;
+    static MainUI mainui;
+    static HomeUI homeui;
+    static Clock clock;
+    static ElevatorManager eleva_mng;
+    static int food_floor;
+    static Thread[] ele_thread;
+    static Thread clock_thread;
+    static Thread elemng_thread;    
+    //first 690 -46
 
-    public static void main(String[] args) {
-        Human test1 = new Human("up",1);
-        Human test2 = new Human("down",3);
-        Human test3 = new Human("test",5);
-        Human test4 = new Human("up",3);
-        Human test5 = new Human("up",10);
-        LinkedList<Integer> test = new LinkedList<>();
-        test.add(5);
-        test.add(6);
-        test.add(2);
-        test.add(2);
-        test.add(4);
-        test.add(4);
-        System.out.print(test.contains(2));
-        InsertionSort.sortQueueDES(test);
-        for(int j=0;j<test.size();j++){
-            System.out.print(test.get(j));
-        }
-        elevator = new Elevator[3];
-        floor = new Floor[15];
-        elevator[0] = new Elevator(1);
-        elevator[1] = new Elevator(2);
-        elevator[2] = new Elevator(3);
-        elevator[0].addHuman(test3);
-        elevator[0].addHuman(test1);
-        elevator[0].addHuman(test2);
-        elevator[0].displayPSG();
-        floor[2] = new Floor(3);
-        floor[4] = new Floor(5);
-        floor[9] = new Floor(10);
-        floor[9].addHumanDown(test2);
-        floor[4].addHumanUp(test5);
-        floor[4].addHumanUp(test5);
-        elevator[0].addQueue(3);
-        elevator[0].addQueue(5);
-        elevator[0].addQueue(10);
+    public static void main(String[] args) throws InterruptedException {
         
-        Thread t1 = new Thread(elevator[0]);
-        Thread t2 = new Thread(elevator[1]);
-        Thread t3 = new Thread(elevator[2]);
-//        Thread t4 = new Thread(new Display());
-//        t4.start();
-//        t1.start();
-//        t2.start();
-//        t3.start();
+        num_floor = 15;
+        num_elevator = 3;
+        food_floor = 2;
+        init();
 
-//        ui1 = new UI();
-//        ui1.setVisible(true);
+//        ele_thread[0].start();
+//        Human h1 = new Human("up", 5);
+//        Human h3 = new Human("up", 7);
+//        floor[0].addHumanUp(h1);
+//        floor[0].addHumanUp(h1);
+//        floor[0].addHumanUp(h1);
+//        floor[0].addHumanUp(h3);
+//        floor[0].addHumanUp(h3);
+//        floor[0].addHumanUp(h1);
+//        floor[0].addHumanUp(h1);
+        
+        
+
+        
+
+
+        
+        
+        homeui = new HomeUI();
+        homeui.setVisible(true);
+        while(true){
+            TimeUnit.SECONDS.sleep(1);
+            floor[0].displayQueueup();
+        }
+        
 //        
 //        while(true){
 //            try {
-//                TimeUnit.MICROSECONDS.sleep(5000);
-//                ui1.setTest(1);
+//                TimeUnit.MICROSECONDS.sleep(timeframe);
+//                mainui.setElevaposition();
 //                
 //                elevator[1].addQueue(1);
 //
@@ -77,9 +70,32 @@ public class Building {
 
     }
 
-    public static void init(int no_ele,int no_floor){
-        elevator = new Elevator[no_ele];
-        floor = new Floor[no_floor];
+    public static void init(){
+        elevator = new Elevator[num_elevator];
+        floor = new Floor[num_floor];
+        ele_thread = new Thread[num_elevator];   
+        for(int i = 0;i<num_floor;i++){
+            floor[i] = new Floor(i+1);
+        }
+        for(int i = 0;i<num_elevator;i++){
+            elevator[i] = new Elevator(i+1);
+            ele_thread[i] = new Thread(elevator[i]);
+        }
+        clock = new Clock(num_floor, food_floor);
+        eleva_mng = new ElevatorManager();
+        clock_thread = new Thread(clock);
+        elemng_thread = new Thread(eleva_mng);
+        
+        
+    }
+    
+    public static void run(){
+        for(int i=0;i<num_elevator;i++){
+            ele_thread[i].start();
+        }
+        clock_thread.start();
+        elemng_thread.start();
+        
     }
 
     public static void display() {

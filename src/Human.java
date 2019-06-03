@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 
 public class Human {
     private String direction;

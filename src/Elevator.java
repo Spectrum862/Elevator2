@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Elevator implements Runnable{
     private LinkedList<Integer> queue;
@@ -8,15 +10,15 @@ public class Elevator implements Runnable{
     private int position;
     private LinkedList<Human> passengers;
     private int max_psg;
-    private int flag; 
+    private int flag;
 
     public Elevator(int number){
         this.number = number;
         queue = new LinkedList<>();
         passengers = new LinkedList<>();
         state = "idle";
-        position = 1;
-        max_psg = 5;
+        position = Building.firstfloorPosi;;
+        max_psg = 10;
 
     }
     
@@ -25,7 +27,7 @@ public class Elevator implements Runnable{
         queue = new LinkedList<>();
         passengers = new LinkedList<>();
         state = "idle";
-        position = 1;
+        position = Building.firstfloorPosi;
         max_psg = maxpsg;
     }
     
@@ -33,59 +35,73 @@ public class Elevator implements Runnable{
     public void run() {
         
         while (true) {
-            if(queue.isEmpty()==false){
-                System.out.println(this.position);
                 int index; 
-                if ((this.getPosition() - this.getFisrt()) < 0) {
-                    this.setState("up");
-                    this.moveUp();
-                }
+                if(queue.isEmpty()==false){
+                    if ((this.getPosition() - this.getFisrt()) > 0) {
+                        this.setState("up");
+                        this.moveUp();
+                    }
 
-                else  if ((this.getPosition() - this.getFisrt()) > 0) {
-                            this.setState("down");
-                            this.moveDown();
-                            flag = 0;
+                    else    if ((this.getPosition() - this.getFisrt()) < 0) {
+                                this.setState("down");
+                                this.moveDown();
+                            }
+                            else if ((this.getPosition() == this.getFisrt())){ //match destination
+                                queue.removeFirst(); 
+                                sendHuman(this.position);
+                                recieveHuman(this.state,this.position);
+                                if(queue.isEmpty()) this.setState("idle");
+                        try {
+                            TimeUnit.MICROSECONDS.sleep(2000000); //Elevator open time
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Elevator.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        else { //match destination
-                            index =  this.getPosition()/Building.floorheight;
-                            System.out.println("Arrive");        
-                            sendHuman(this.position);
-                            recieveHuman(this.state,this.position);
-                            queue.removeFirst();
-                            displayPSG();
-                            if(queue.isEmpty())this.setState("idle");
-                        }
-            }    
+
+
+                            }
+                }
+                else if(queue.isEmpty()){
+                    int floorindex = (Building.firstfloorPosi-this.getPosition())/Building.floorheight;
+                    if(!Building.floor[floorindex].isQDownEmpty())this.setState("down");
+                    else if(!Building.floor[floorindex].isQUpEmpty()) this.setState("up");
+                    recieveHuman(this.state,this.position);
+                }                
+                           
             try {
-                TimeUnit.SECONDS.sleep(Building.timeframe);
+                TimeUnit.MICROSECONDS.sleep(Building.timeframe);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }  
         }
     }
     
-    public void sendHuman(int floor){
-        int index = floor-1;
-        LinkedList<Human> human = selectHuman(floor,passengers);
+    public void sendHuman(int position){
+        int index = (Building.firstfloorPosi-position)/Building.floorheight;
+        LinkedList<Human> human = selectHuman(index+1,passengers);
         for(int i = 0;i<human.size();i++){
             Building.floor[index].recievePSG(human.get(i));
         }
     }
     
-    public void recieveHuman(String des,int floor){
-        int index =  floor-1;
+    public void recieveHuman(String state,int position){
+        int index =  (Building.firstfloorPosi-position)/Building.floorheight;
         LinkedList<Human> human = null;
         Floor target_floor = Building.floor[index];
         int freespace = max_psg-passengers.size();
-        if(des.equals("up")){
+        
+        if(state.equals("up")){
             human = target_floor.selectHumanup(freespace);
         }
-        if(des.equals("down")){
-            human = target_floor.selectHumandown(freespace);
-        }
+        else if(state.equals("down")){
+                    human = target_floor.selectHumandown(freespace);
+                }
+            else if(state.equals("idle")){
+                
+            }
+        
         if(human!=null) 
             for(int i =0;i<human.size();i++){
-                passengers.add(human.get(i));
+                this.addHuman(human.get(i));
                 this.addQueue(human.get(i).getFloor());
             }
     }
@@ -102,10 +118,11 @@ public class Elevator implements Runnable{
         return state;
     }
 
-    public void addQueue(int floor){
-        queue.add(floor);
-        if(state.equals("up")) InsertionSort.sortQueue(queue);
-        if(state.equals("down")) InsertionSort.sortQueueDES(queue);
+    public synchronized void addQueue(int floor){
+        floor = Building.firstfloorPosi-(Building.floorheight*(floor-1));
+        queue.addLast(floor);
+        if(state.equals("up")) InsertionSort.sortQueueDES(queue);
+        if(state.equals("down")) InsertionSort.sortQueue(queue);
     }
 
     public void addHuman(Human human){
@@ -140,11 +157,13 @@ public class Elevator implements Runnable{
     }
 
     public void moveUp(){
-        position += Building.scale;
+        position -= Building.scale;
+        Building.mainui.setElevaposition();
     }
 
     public void moveDown(){
-        position -= Building.scale;
+        position += Building.scale;
+        Building.mainui.setElevaposition();
     }
 
     public int getFisrt(){

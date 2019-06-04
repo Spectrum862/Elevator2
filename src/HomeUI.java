@@ -60,7 +60,7 @@ public class HomeUI extends javax.swing.JFrame {
         getContentPane().add(no_canteen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 300, 33));
 
         jLabel6.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
-        jLabel6.setText("NUMBER OF FLOOR");
+        jLabel6.setText("CANTEEN FLOOR");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 90)); // NOI18N

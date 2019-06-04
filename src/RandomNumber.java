@@ -71,7 +71,7 @@ public class RandomNumber
 		if(minuteday >= 420 &&  minuteday <= 450) {
 			for (int floorgo =1 ; floorgo <= maxfloor ; floorgo++)
 			{
-			lambda = 3;
+			lambda = 1;
 			number = getPoisson(lambda);
 			
 				for(int i = 1;i <= number ;i++)

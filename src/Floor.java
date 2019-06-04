@@ -68,7 +68,7 @@ public class Floor {
     
     
     
-    public void recievePSG(Human human){
+    public synchronized void recievePSG(Human human){
         this.arrived_psg.add(human);
     }
 

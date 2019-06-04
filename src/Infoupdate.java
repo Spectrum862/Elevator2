@@ -19,7 +19,7 @@ public class Infoupdate implements Runnable{
     public void run() {
         while(true){
         try {
-            TimeUnit.MICROSECONDS.sleep(1);
+            TimeUnit.MICROSECONDS.sleep(2500);
             updateinfo();
         } catch (InterruptedException ex) {
             Logger.getLogger(Infoupdate.class.getName()).log(Level.SEVERE, null, ex);
@@ -27,7 +27,7 @@ public class Infoupdate implements Runnable{
         }
     }
 
-    private void updateinfo() {
+    private synchronized void updateinfo() {
         Building.mainui.setTime();
         Building.mainui.setInfo();
     }

@@ -207,7 +207,7 @@ public class RandomNumber
 					}
 					all = all +1;
 					String direction = direction(floorgo,floornow);
-					System.out.printf("\n %4d number   floornow    %6d : %7s : floorgo %6d" ,all,floornow,direction,floorgo);
+					//System.out.printf("\n %4d number   floornow    %6d : %7s : floorgo %6d" ,all,floornow,direction,floorgo);
 					human = new Human(direction,floorgo);
 				    if(direction.equals("up")) Building.floor[floornow-1].addHumanUp(human);
 				    else Building.floor[floornow-1].addHumanDown(human);

@@ -93,8 +93,36 @@ public class MainUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        qd1 = new javax.swing.JLabel();
+        qd2 = new javax.swing.JLabel();
+        qd3 = new javax.swing.JLabel();
+        qd4 = new javax.swing.JLabel();
+        qd5 = new javax.swing.JLabel();
+        qd6 = new javax.swing.JLabel();
+        qd7 = new javax.swing.JLabel();
+        qd8 = new javax.swing.JLabel();
+        qd9 = new javax.swing.JLabel();
+        qd10 = new javax.swing.JLabel();
+        qd11 = new javax.swing.JLabel();
+        qd12 = new javax.swing.JLabel();
+        qd13 = new javax.swing.JLabel();
+        qd14 = new javax.swing.JLabel();
+        qd15 = new javax.swing.JLabel();
+        qu1 = new javax.swing.JLabel();
+        qu2 = new javax.swing.JLabel();
+        qu3 = new javax.swing.JLabel();
+        qu4 = new javax.swing.JLabel();
+        qu5 = new javax.swing.JLabel();
+        qu6 = new javax.swing.JLabel();
+        qu7 = new javax.swing.JLabel();
+        qu8 = new javax.swing.JLabel();
+        qu9 = new javax.swing.JLabel();
+        qu10 = new javax.swing.JLabel();
+        qu11 = new javax.swing.JLabel();
+        qu12 = new javax.swing.JLabel();
+        qu13 = new javax.swing.JLabel();
+        qu14 = new javax.swing.JLabel();
+        qu15 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Statee1 = new java.awt.Label();
@@ -349,11 +377,95 @@ public class MainUI extends javax.swing.JFrame {
         jLabel7.setText("jLabel5");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 86, 690));
 
-        jLabel8.setText("Queue down : X");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, -1, -1));
+        qd1.setText("Queue down : X");
+        jPanel2.add(qd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, -1, -1));
 
-        jLabel9.setText("Queue up : X");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 670, -1, -1));
+        qd2.setText("Queue down : X");
+        jPanel2.add(qd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 625, -1, -1));
+
+        qd3.setText("Queue down : X");
+        jPanel2.add(qd3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 580, -1, -1));
+
+        qd4.setText("Queue down : X");
+        jPanel2.add(qd4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 535, -1, -1));
+
+        qd5.setText("Queue down : X");
+        jPanel2.add(qd5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 485, -1, -1));
+
+        qd6.setText("Queue down : X");
+        jPanel2.add(qd6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, -1));
+
+        qd7.setText("Queue down : X");
+        jPanel2.add(qd7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, -1));
+
+        qd8.setText("Queue down : X");
+        jPanel2.add(qd8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 345, -1, -1));
+
+        qd9.setText("Queue down : X");
+        jPanel2.add(qd9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 300, -1, -1));
+
+        qd10.setText("Queue down : X");
+        jPanel2.add(qd10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 255, -1, -1));
+
+        qd11.setText("Queue down : X");
+        jPanel2.add(qd11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+
+        qd12.setText("Queue down : X");
+        jPanel2.add(qd12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
+
+        qd13.setText("Queue down : X");
+        jPanel2.add(qd13, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
+
+        qd14.setText("Queue down : X");
+        jPanel2.add(qd14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, -1));
+
+        qd15.setText("Queue down : X");
+        jPanel2.add(qd15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 25, -1, -1));
+
+        qu1.setText("Queue up : X");
+        jPanel2.add(qu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 670, -1, -1));
+
+        qu2.setText("Queue up : X");
+        jPanel2.add(qu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 625, -1, -1));
+
+        qu3.setText("Queue up : X");
+        jPanel2.add(qu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 580, -1, -1));
+
+        qu4.setText("Queue up : X");
+        jPanel2.add(qu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 535, -1, -1));
+
+        qu5.setText("Queue up : X");
+        jPanel2.add(qu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 485, -1, -1));
+
+        qu6.setText("Queue up : X");
+        jPanel2.add(qu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, -1, -1));
+
+        qu7.setText("Queue up : X");
+        jPanel2.add(qu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, -1, -1));
+
+        qu8.setText("Queue up : X");
+        jPanel2.add(qu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 345, -1, -1));
+
+        qu9.setText("Queue up : X");
+        jPanel2.add(qu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 300, -1, -1));
+
+        qu10.setText("Queue up : X");
+        jPanel2.add(qu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 255, -1, -1));
+
+        qu11.setText("Queue up : X");
+        jPanel2.add(qu11, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, -1, -1));
+
+        qu12.setText("Queue up : X");
+        jPanel2.add(qu12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
+
+        qu13.setText("Queue up : X");
+        jPanel2.add(qu13, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
+
+        qu14.setText("Queue up : X");
+        jPanel2.add(qu14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, -1, -1));
+
+        qu15.setText("Queue up : X");
+        jPanel2.add(qu15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 25, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1190, 700));
 
@@ -461,6 +573,8 @@ public class MainUI extends javax.swing.JFrame {
     public synchronized void setInfo(){
         int position = Building.elevator[0].getPosition();
         JLabel[] flabel = {f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15};
+        JLabel[] qup = {qu1,qu2,qu3,qu4,qu5,qu6,qu7,qu8,qu9,qu10,qu11,qu12,qu13,qu14,qu15};
+        JLabel[] qdown = {qd1,qd2,qd3,qd4,qd5,qd6,qd7,qd8,qd9,qd10,qd11,qd12,qd13,qd14,qd15};
         Point xy;
         int x;
         int y;
@@ -507,6 +621,11 @@ public class MainUI extends javax.swing.JFrame {
             }
             flabel[(Building.food_floor)-1].setText(Building.food_floor+"TH Floor" + " Canteen");
             
+        }
+        
+        for(int i =0;i<Building.num_floor;i++){
+            qup[i].setText("Queue up : "+Building.floor[i].getQueue_up().size());
+            qdown[i].setText("Queue down : "+Building.floor[i].getQueue_down().size());
         }
                   
     }
@@ -599,8 +718,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSlider jSlider2;
@@ -624,6 +741,36 @@ public class MainUI extends javax.swing.JFrame {
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
+    private javax.swing.JLabel qd1;
+    private javax.swing.JLabel qd10;
+    private javax.swing.JLabel qd11;
+    private javax.swing.JLabel qd12;
+    private javax.swing.JLabel qd13;
+    private javax.swing.JLabel qd14;
+    private javax.swing.JLabel qd15;
+    private javax.swing.JLabel qd2;
+    private javax.swing.JLabel qd3;
+    private javax.swing.JLabel qd4;
+    private javax.swing.JLabel qd5;
+    private javax.swing.JLabel qd6;
+    private javax.swing.JLabel qd7;
+    private javax.swing.JLabel qd8;
+    private javax.swing.JLabel qd9;
+    private javax.swing.JLabel qu1;
+    private javax.swing.JLabel qu10;
+    private javax.swing.JLabel qu11;
+    private javax.swing.JLabel qu12;
+    private javax.swing.JLabel qu13;
+    private javax.swing.JLabel qu14;
+    private javax.swing.JLabel qu15;
+    private javax.swing.JLabel qu2;
+    private javax.swing.JLabel qu3;
+    private javax.swing.JLabel qu4;
+    private javax.swing.JLabel qu5;
+    private javax.swing.JLabel qu6;
+    private javax.swing.JLabel qu7;
+    private javax.swing.JLabel qu8;
+    private javax.swing.JLabel qu9;
     private javax.swing.JToggleButton stop_button;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables

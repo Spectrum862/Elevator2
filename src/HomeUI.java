@@ -30,24 +30,38 @@ public class HomeUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        no_canteen = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        no_floor = new javax.swing.JTextField();
+        no_elevator = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
         enter_but = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        IMG = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(186, 255, 235));
         setMinimumSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        no_canteen.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
+        no_canteen.setText("2");
+        no_canteen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                no_canteenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(no_canteen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 440, 300, 33));
+
+        jLabel6.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
+        jLabel6.setText("NUMBER OF FLOOR");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 90)); // NOI18N
         jLabel1.setText("ELEVATOR SYSTEM");
@@ -65,48 +79,27 @@ public class HomeUI extends javax.swing.JFrame {
         jLabel4.setText("NUMBER OF ELEVATORS");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
 
-        jTextField2.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
-        jTextField2.setText("1-3");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        no_floor.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
+        no_floor.setText("15");
+        no_floor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                no_floorActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 300, 33));
+        getContentPane().add(no_floor, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 300, 33));
 
-        jTextField3.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
-        jTextField3.setText("2-15");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        no_elevator.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
+        no_elevator.setText("3");
+        no_elevator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                no_elevatorActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 300, 33));
+        getContentPane().add(no_elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 300, 33));
 
         jLabel5.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
         jLabel5.setText("OPTION");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
-
-        jCheckBox1.setBackground(new java.awt.Color(165, 226, 209));
-        jCheckBox1.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
-        jCheckBox1.setText("CANTEEN");
-        jCheckBox1.setActionCommand("LOW / HIGH ZONE");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, -1, -1));
-
-        jCheckBox2.setBackground(new java.awt.Color(165, 226, 209));
-        jCheckBox2.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 25)); // NOI18N
-        jCheckBox2.setText("LOW / HIGH ZONE");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
         enter_but.setBackground(new java.awt.Color(0, 0, 0));
         enter_but.setFont(new java.awt.Font("Arca Majora 3 Bold", 1, 30)); // NOI18N
@@ -119,39 +112,52 @@ public class HomeUI extends javax.swing.JFrame {
         });
         getContentPane().add(enter_but, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 510, 680, 50));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GG.gif"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 630, 500));
+        IMG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GG.gif"))); // NOI18N
+        IMG.setText("jLabel7");
+        getContentPane().add(IMG, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 220, 630, 500));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/01.gif"))); // NOI18N
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -250, 1400, 970));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ABOUT_US.gif"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 683, 130, 30));
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/01.gif"))); // NOI18N
+        BG.setText("jLabel6");
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, -250, 1400, 970));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void no_floorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_floorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_no_floorActionPerformed
 
     private void enter_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enter_butActionPerformed
+        
+        Building.setE_F_C(Integer.parseInt(no_elevator.getText()), Integer.parseInt(no_floor.getText()), Integer.parseInt(no_canteen.getText()));
+        Building.init();
         Building.mainui = new MainUI(); 
         this.dispose();
         Building.mainui.setVisible (true);
         Building.run();
+        
     }//GEN-LAST:event_enter_butActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void no_elevatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_elevatorActionPerformed
+            // TODO add your handling code here:
+    }//GEN-LAST:event_no_elevatorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       Members buttom = new Members();
+       buttom.setVisible (true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void no_canteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_no_canteenActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_no_canteenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,17 +196,18 @@ public class HomeUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BG;
+    private javax.swing.JLabel IMG;
     private javax.swing.JButton enter_but;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField no_canteen;
+    private javax.swing.JTextField no_elevator;
+    private javax.swing.JTextField no_floor;
     // End of variables declaration//GEN-END:variables
 }

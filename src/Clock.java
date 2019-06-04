@@ -87,7 +87,7 @@ public class Clock implements Runnable
                         Logger.getLogger(Clock.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
-                    while(stopflag==0) {System.out.println("");};
+                    while(stopflag==0) {System.out.print("");};
                     
 		}
 		

@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
+import javax.swing.SwingConstants;
 
 public class ElevatorManager implements Runnable{
 
@@ -23,51 +24,55 @@ public class ElevatorManager implements Runnable{
         int buff = 0;
         int target = 0;
         boolean running = true;
-        while (running &&(i >= 0)) {
-            if (!Building.floor[i].isQUpEmpty()) {
+        while (running) {
+            System.out.println("...");
+            System.out.println(Building.floor[i].isQUpEmpty());
+            System.out.println(Building.floor[i].isQDownEmpty());
+            if (Building.floor[i].isQUpEmpty()==false) {
+                System.out.println("UP");
                 d = 0;
                 buff = Building.num_floor;
                 for (int j = 0; j < Building.elevator.length ; j++) {
-                    if(i==0){
-                        if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("down")) {
-                            d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
-                        }
-                    } else {
-                        if (Building.elevator[j].getState().equals("idle")||(Building.elevator[j].getState().equals("up")&& Building.elevator[j].FloornumPosi() < Building.floor[i].getFloornum() )) {
-                            d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
+                    System.out.println("j = " + j);
+                    if (Building.elevator[j].getState().equals("idle")||(Building.elevator[j].getState().equals("up")&& Building.elevator[j].FloornumPosi() < Building.floor[i].getFloornum() )) {
+                        d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
+                        System.out.println("d = " + d);
+                        if (d <= buff) {
+                            System.out.println("d < buff");
+                            buff = d;
+                            target = j;
                         }
                     }
-
-                    if (d <= buff) {
-                        buff = d;
-                        target = j;
+                    if((j == Building.elevator.length -1)&&(buff != Building.num_floor)){
+                        System.out.println("add queue");
+                        Building.elevator[target].addQueue(i + 1);
                     }
                 }
-                Building.elevator[target].addQueue(i + 1);
             }
-            if (!Building.floor[i].isQDownEmpty()) {
+            if (Building.floor[i].isQDownEmpty()==false) {
+                System.out.println("DOWN");
                 d = 0;
                 buff = Building.num_floor;
                 for (int j = 0; j < Building.elevator.length; j++) {
-                    if(i==Building.num_floor-1){
-                        if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("up")) {
-                            d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
-                        }
-                    } else {
-                        if (Building.elevator[j].getState().equals("idle")||(Building.elevator[j].getState().equals("down")&&Building.elevator[j].FloornumPosi() > Building.floor[i].getFloornum() )) {
-                            d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
+                    System.out.println("j = " + j);
+                    if (Building.elevator[j].getState().equals("idle")||(Building.elevator[j].getState().equals("down")&&Building.elevator[j].FloornumPosi() > Building.floor[i].getFloornum() )) {
+                        d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
+                        System.out.println("d = " + d);
+                        if (d <= buff) {
+                            System.out.println("d < buff");
+                            buff = d;
+                            target = j;
                         }
                     }
-                    if (d <= buff) {
-                        buff = d;
-                        target = j;
+                    if((j == Building.elevator.length -1)&&(buff != Building.num_floor)){
+                        System.out.println("add queue");
+                        Building.elevator[target].addQueue(i + 1);
                     }
                 }
-                Building.elevator[target].addQueue(i + 1);
             }
             i--;
             if (i < 0) i = Building.num_floor - 1;
-            TimeUnit.MICROSECONDS.sleep(2000000);
+            TimeUnit.MICROSECONDS.sleep(200000);
         }
     }
 

@@ -6,15 +6,15 @@ public class Building {
     public static int timeframe = 10000;
     public static final int floorheight = 46;
     public static final int firstfloorPosi = 645;
-    static int num_floor;
-    static int num_elevator;
+    static int num_floor = 15;
+    static int num_elevator = 3;
     static Elevator[] elevator;
     static Floor[] floor;
     static MainUI mainui;
     static HomeUI homeui;
     static Clock clock;
     static ElevatorManager eleva_mng;
-    static int food_floor;
+    static int food_floor = 2;
     static Thread[] ele_thread;
     static Thread clock_thread;
     static Thread elemng_thread;
@@ -22,51 +22,8 @@ public class Building {
     //first 690 -46
 
     public static void main(String[] args) throws InterruptedException {
-        
-        num_floor = 15;
-        num_elevator = 3;
-        food_floor = 2;
-        init();
-
-//        ele_thread[0].start();
-//        Human h1 = new Human("up", 5);
-//        Human h3 = new Human("up", 7);
-//        floor[0].addHumanUp(h1);
-//        floor[0].addHumanUp(h1);
-//        floor[0].addHumanUp(h1);
-//        floor[0].addHumanUp(h3);
-//        floor[0].addHumanUp(h3);
-//        floor[0].addHumanUp(h1);
-//        floor[0].addHumanUp(h1);
-        
-        
-
-        
-
-
-        
-        
         homeui = new HomeUI();
         homeui.setVisible(true);
-        while(true){
-            TimeUnit.SECONDS.sleep(1);
-            
-            System.out.println(elevator[0].displayQueue());
-        }
-        
-//        
-//        while(true){
-//            try {
-//                TimeUnit.MICROSECONDS.sleep(timeframe);
-//                mainui.setElevaposition();
-//                
-//                elevator[1].addQueue(1);
-//
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//        }    
-
     }
 
     public static void init(){
@@ -82,8 +39,8 @@ public class Building {
         }
         clock = new Clock(num_floor, food_floor);
         eleva_mng = new ElevatorManager();
-        clock_thread = new Thread(clock);
         elemng_thread = new Thread(eleva_mng);
+        clock_thread = new Thread(clock);
         updator = new Infoupdate();
         
         
@@ -97,8 +54,8 @@ public class Building {
         for(int i=0;i<num_elevator;i++){
             ele_thread[i].start();
         }
+        elemng_thread.start();
         clock_thread.start();
-//        elemng_thread.start();
         Thread update = new Thread(updator);
         update.start();
         
@@ -112,6 +69,12 @@ public class Building {
     public static void unstop(){
         scale = 1;
         clock.unstop();
+    }
+    
+    public static void setE_F_C(int e,int f, int c){
+        num_elevator = e;
+        num_floor = f;
+        food_floor = c;
     }
     
     }

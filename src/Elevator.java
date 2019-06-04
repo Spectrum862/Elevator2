@@ -174,11 +174,11 @@ public class Elevator implements Runnable{
         
     }
 
-    public int getFirst(){
+    public synchronized int getFirst(){
         return queue.getFirst();
     }
     
-    public int getFirstFloor(){
+    public synchronized int getFirstFloor(){
         return ((Building.firstfloorPosi-queue.getFirst())/Building.floorheight)+1;
     }
     
@@ -204,7 +204,7 @@ public class Elevator implements Runnable{
     
 
     
-    public String displayQueue(){
+    public synchronized String displayQueue(){
         String buff;
         buff = " ";
         for(int i = 0;i<queue.size();i++) buff = buff+" "+(((Building.firstfloorPosi-queue.get(i))/Building.floorheight)+1);

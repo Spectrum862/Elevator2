@@ -33,10 +33,11 @@ public class ElevatorManager implements Runnable{
                             d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
                         }
                     } else {
-                        if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("up")) {
+                        if (Building.elevator[j].getState().equals("idle")||(Building.elevator[j].getState().equals("up")&& Building.elevator[j].FloornumPosi() < Building.floor[i].getFloornum() )) {
                             d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
                         }
                     }
+
                     if (d <= buff) {
                         buff = d;
                         target = j;
@@ -53,7 +54,7 @@ public class ElevatorManager implements Runnable{
                             d = Building.floor[i].getFloornum() - Building.elevator[j].FloornumPosi();
                         }
                     } else {
-                        if (Building.elevator[j].getState().equals("idle")||Building.elevator[j].getState().equals("down")) {
+                        if (Building.elevator[j].getState().equals("idle")||(Building.elevator[j].getState().equals("down")&&Building.elevator[j].FloornumPosi() > Building.floor[i].getFloornum() )) {
                             d = Building.elevator[j].FloornumPosi() - Building.floor[i].getFloornum();
                         }
                     }

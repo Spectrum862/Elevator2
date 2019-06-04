@@ -144,7 +144,7 @@ public class HomeUI extends javax.swing.JFrame {
 
     private void enter_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enter_butActionPerformed
         Building.mainui = new MainUI(); 
-        this.dispose();;
+        this.dispose();
         Building.mainui.setVisible (true);
         Building.run();
     }//GEN-LAST:event_enter_butActionPerformed

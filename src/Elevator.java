@@ -46,26 +46,31 @@ public class Elevator implements Runnable{
                                 this.setState("down");
                                 this.moveDown();
                             }
-                            else if ((this.getPosition() == this.getFirst())){ //match destination
-                                queue.removeFirst(); 
-                                sendHuman(this.position);
-                                recieveHuman(this.state,this.position);
-                                if(queue.isEmpty()) this.setState("idle");
+                            else if ((this.getPosition() == this.getFirst())){ //match destination                              
                         try {
-                            TimeUnit.MICROSECONDS.sleep(2000000); //Elevator open time
+                            TimeUnit.MICROSECONDS.sleep(Building.timeframe*200); //Elevator open time
                         } catch (InterruptedException ex) {
                             Logger.getLogger(Elevator.class.getName()).log(Level.SEVERE, null, ex);
-                        }
+                        }                                
+                                sendHuman(this.position);
+                                recieveHuman(this.state,this.position);
+                                queue.removeFirst(); 
+                                if(queue.isEmpty()) this.setState("idle");
+
 
 
                             }
                 }
                 else if(queue.isEmpty()){
+                    try {
+                        TimeUnit.MICROSECONDS.sleep(Building.timeframe*200);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Elevator.class.getName()).log(Level.SEVERE, null, ex);
+                    }                    
                     int floorindex = (Building.firstfloorPosi-this.getPosition())/Building.floorheight;
                     if(!Building.floor[floorindex].isQDownEmpty())this.setState("down");
                     else if(!Building.floor[floorindex].isQUpEmpty()) this.setState("up");
                     recieveHuman(this.state,this.position);
-                    Building.mainui.setInfo();
                 }                
                            
             try {
@@ -100,9 +105,6 @@ public class Elevator implements Runnable{
         else if(state.equals("down")){
                     human = target_floor.selectHumandown(freespace);
                 }
-            else if(state.equals("idle")){
-                
-            }
         
         if(human!=null) 
             for(int i =0;i<human.size();i++){
@@ -197,6 +199,15 @@ public class Elevator implements Runnable{
             int tagn = tag.get(i);
             passengers.remove(tagn);
         }
+        return buff;
+    }
+    
+
+    
+    public String displayQueue(){
+        String buff;
+        buff = " ";
+        for(int i = 0;i<queue.size();i++) buff = buff+" "+(((Building.firstfloorPosi-queue.get(i))/Building.floorheight)+1);
         return buff;
     }
   

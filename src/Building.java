@@ -50,8 +50,8 @@ public class Building {
         homeui.setVisible(true);
         while(true){
             TimeUnit.SECONDS.sleep(1);
-            floor[0].displayQueueup();
-            System.out.println(clock.getTime());
+            
+            System.out.println(elevator[0].displayQueue());
         }
         
 //        

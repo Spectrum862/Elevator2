@@ -94,6 +94,7 @@ public class MainUI extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Statee1 = new java.awt.Label();
@@ -348,8 +349,11 @@ public class MainUI extends javax.swing.JFrame {
         jLabel7.setText("jLabel5");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 0, 86, 690));
 
-        jLabel8.setText("jLabel8");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 670, -1, -1));
+        jLabel8.setText("Queue down : X");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 670, -1, -1));
+
+        jLabel9.setText("Queue up : X");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 670, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1190, 700));
 
@@ -420,9 +424,9 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_door1ComponentMoved
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
-        HomeUI buttom = new HomeUI();
-        buttom.setVisible (true);
+     
+        Building.homeui.setVisible (true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jSlider2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider2StateChanged
@@ -472,7 +476,8 @@ public class MainUI extends javax.swing.JFrame {
                 Statee1.setText("State : "+Building.elevator[i].getState());
                 Hue1.setText("No. of people : " + Building.elevator[i].getPsize());
                 if(!Building.elevator[i].isQueueEmpty())
-                    Queuee1.setText("Queue : "+Building.elevator[i].getFirstFloor());
+//                    Queuee1.setText("Queue : "+Building.elevator[i].getFirstFloor());
+                    Queuee1.setText(Building.elevator[i].displayQueue());
                 else Queuee1.setText("Queue : Empty");
                 
             }
@@ -484,7 +489,8 @@ public class MainUI extends javax.swing.JFrame {
                 State2e2.setText("State : "+Building.elevator[i].getState());
                 Hu2e2.setText("No. of people : " + Building.elevator[i].getPsize());
                 if(!Building.elevator[i].isQueueEmpty())    
-                    Queue2e2.setText("Queue : "+Building.elevator[i].getFirstFloor());
+//                    Queue2e2.setText("Queue : "+Building.elevator[i].getFirstFloor());
+                    Queue2e2.setText(Building.elevator[i].displayQueue());
                 else Queue2e2.setText("Queue : Empty");
             }
             if(i==2){
@@ -495,7 +501,8 @@ public class MainUI extends javax.swing.JFrame {
                 State3e3.setText("State : "+Building.elevator[i].getState());
                 Hu3e3.setText("No. of people : " + Building.elevator[i].getPsize());
                 if(!Building.elevator[i].isQueueEmpty())
-                    Queue3e3.setText("Queue : "+Building.elevator[i].getFirstFloor());
+//                    Queue3e3.setText("Queue : "+Building.elevator[i].getFirstFloor());
+                    Queue3e3.setText(Building.elevator[i].displayQueue());
                 else Queue3e3.setText("Queue : Empty");
             }
             flabel[(Building.food_floor)-1].setText(Building.food_floor+"TH Floor" + " Canteen");
@@ -593,6 +600,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSlider jSlider2;
